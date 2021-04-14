@@ -506,6 +506,7 @@ expect="xxx"
 [[ "$actual" = "$expect" ]] || err_exit "<>; does not truncate files - $expect - $actual"
 rm -f $tf
 
+cp /dev/null $tf
 $SHELL -c '{ echo "Foo"; echo "bar"; uname; } >; '$tf
 [[ -s "$tf" ]] || err_exit ">; does not work with -c"
 rm -f $tf
